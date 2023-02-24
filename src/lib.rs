@@ -16,13 +16,13 @@ pub struct OpenAI {
 }
 
 impl OpenAI {
-    pub fn new(api_key: String) -> OpenAI {
-        OpenAI {
-            api_key: api_key.clone(),
-            client: Client::new(),
-            base_url: "https://api.openai.com/v1/".to_owned(),
-        }
+pub fn new(api_key: String) -> OpenAI {
+    OpenAI {
+        api_key: api_key,
+        client: Client::new(),
+        base_url: "https://api.openai.com/v1/".to_owned(),
     }
+}
 
     pub fn set_base_url(&mut self, base_url: &str) {
         self.base_url = base_url.to_owned();
@@ -36,7 +36,7 @@ impl OpenAI {
         format!("{}{}", self.base_url, endpoint)
     }
 
-pub async fn generate<'a, T>(&self, model: &'a str, prompt: &str, max_tokens: usize) -> Result<T, String>
+pub async fn generate<T>(&self, model: &str, prompt: &str, max_tokens: usize) -> Result<T, String>
 where
     T: DeserializeOwned + std::fmt::Debug,
 {
@@ -56,25 +56,25 @@ where
         engine: model,
     };
 
-    let body = serde_json::to_string(&data).unwrap();
+    let body = match serde_json::to_string(&data) {
+    Ok(body) => body,
+    Err(e) => return Err(e.to_string()),
+};
 
-    let response = self.client
-        .post(&url)
-        .header("Authorization", format!("Bearer {}", self.api_key))
-        .header("Content-Type", "application/json")
-        .body(body)
-        .send()
-        .await;
+let response = self.client.post(&url)
+    .header("Authorization", format!("Bearer {}", self.api_key))
+    .header("Content-Type", "application/json")
+    .body(body)
+    .send()
+    .await
+    .expect("Request failed");
 
-    let response = match response {
-        Ok(res) => res,
-        Err(err) => return Err(err.to_string()),
-    };
 
     let status = response.status();
     let body = response.text().await.map_err(|err| err.to_string())?;
 
-    let response_body: T = serde_json::from_str(&body).map_err(|err| err.to_string())?;
+ let response_body: T = serde_json::from_str(&body)
+    .unwrap_or_else(|err| panic!("Error parsing response body: {}", err));
 
     if status.is_success() {
         Ok(response_body)
@@ -146,7 +146,7 @@ where
             Err(format!("Request failed with status code: {}, response body: {:?}", status, response_body))
         }
     }
-       pub async fn get_training_logs(&self, model: &str, training_id: &str) -> Result<String, String> {
+   pub async fn get_training_logs(&self, model: &str, training_id: &str) -> Result<String, String> {
         let endpoint = format!("engines/{}/training/{}/logs", model, training_id);
         let url = self.build_url(&endpoint);
 
