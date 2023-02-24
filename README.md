@@ -1,3 +1,7 @@
-# OpenAI API Rust Client Crate
 
-This is a Rust client library for the OpenAI API. With this library, you can generate text using the OpenAI GPT models, and also train models and use embeddings.
+
+# OpenAI Rust Client
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+The OpenAI Rust library provides convenient access to the OpenAI API from applications written in the Rust language.
