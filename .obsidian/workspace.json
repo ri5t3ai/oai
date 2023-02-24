@@ -18,30 +18,6 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "cfd7f2341bf3c1d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "client/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "eae0ca8fc12a9a8e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "cli/README.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
         ]
       }
@@ -172,6 +148,17 @@
   },
   "active": "b544d1bfb78bc53f",
   "lastOpenFiles": [
+    "Cargo.lock",
+    "examples/oai-actix/src/main.rs",
+    "examples/oai-actix/src",
+    "examples/oai-actix/Cargo.toml",
+    "dev/src/main.rs",
+    "dev/src",
+    "dev/Cargo.toml",
+    "client/src/api/davinci_instruct.rs",
+    "client/src/api/mod.rs",
+    "client/src/api/davinci_codex.rs",
+    "client/src/api/davinci.rs",
     "client/README.md",
     "cli/README.md",
     "README.md",

@@ -7,23 +7,15 @@ members = [
 ]
 default-members = ["dev"]
 [package]
-name = "oai"
+name = "openai_api"
 version = "0.1.0"
 edition = "2021"
 
-[lib]
-name = "client"
-path = "client/src/lib.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[[bin]]
-name = "cli"
-path = "cli/src/bin.rs"
-
-[[bin]]
-name = "dev"
-path = "dev/src/main.rs"
-
-
-[[bin]]
-name = "oai-actix"
-path = "examples/oai-actix/src/main.rs"
+[dependencies]
+serde_json = "1.0.93"
+reqwest = "0.11.14"
+actix = "0.13.0"
+serde = { version = "1.0.152", features = ["derive"] }
+tokio = { version = "1.25.0", features = ["full"] }

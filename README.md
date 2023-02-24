@@ -1,5 +1,5 @@
 
-# OpenAI Rust Crate
+# OpenAI Rust Client
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -53,7 +53,7 @@ This will build the CLI and install it to your system.
 
 To generate text:
 
-```sh 
+```sh
 oai generate --model davinci --prompt "Hello, my name is" --max-tokens 5
 ```
 
