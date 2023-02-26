@@ -4,7 +4,7 @@ members = [
   "cli",
   "playground",
 ]
-default-members = ["dev"]
+default-members = ["playground"]
 [package]
 name = "oai"
 version = "0.1.0"
