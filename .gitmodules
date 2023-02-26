@@ -1,0 +1,9 @@
+[submodule "playground"]
+	path = playground
+	url = https://github.com/ri5t3ai/oai-playground.git
+[submodule "client"]
+	path = client
+	url = https://github.com/ri5t3ai/oai-client.git
+[submodule "cli"]
+	path = cli
+	url = https://github.com/ri5t3ai/oai-cli.git
