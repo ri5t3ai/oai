@@ -1,34 +1,23 @@
+[workspace]
+members = [
+  "client",
+  "cli",
+  "playground",
+]
+default-members = ["dev"]
 [package]
-name = "openai_api"
-version = "0.0.0"
+name = "oai"
+version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "client"
+path = "client/src/lib.rs"
 
-[dev-dependencies]
+[[bin]]
+name = "cli"
+path = "cli/src/bin.rs"
 
-[dependencies]
-reqwest = "0.11.14"
-serde_json = "1.0.93"
-serde = { version = "1.0.152", features = ["derive"] }
-tokio = { version = "1.25.0", features = ["full"] }
-clap = { version = "4.1.6", features = ["derive"] }
-fern = "0.6.1"
-chrono = "0.4.23"
-[build-dependencies]
-
-
-
-[profile.dev]
-opt-level = 1               # Use slightly better optimizations.
-overflow-checks = false     # Disable integer overflow checks.
-
-[profile.release]
-strip = "debuginfo"
-
-[profile.dev.package.openai_api]
-
-[package.metadata.clap]
-args = [
-    "--api-key", { env = "OPENAI_API_KEY", required = true, env_err = "Please set the OPENAI_API_KEY environment variable" }
-]
+[[bin]]
+name = "playground"
+path = "playground/src/main.rs"
