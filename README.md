@@ -2,7 +2,7 @@
 
 # OpenAI Rust Crate
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" />         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
 
 This is a Rust crate for working with the OpenAI API. It provides a library for generating text, listing available models, getting embeddings for text, and training custom models, as well as a command-line interface (CLI) for interacting with the API.
 
