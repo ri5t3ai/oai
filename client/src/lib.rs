@@ -96,7 +96,7 @@ impl OpenAI {
 
     pub async fn list_models(&self) -> Result<ModelsResponse, String> {
         let endpoint = "models";
-        let url = self.build_url(&endpoint);
+        let url = self.build_url(endpoint);
 
         let response = self
             .client
