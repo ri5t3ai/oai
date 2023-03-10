@@ -1,3 +1,6 @@
+
+use client::{OpenAI, GenerateResponse, EmbeddingsResponse, ModelsResponse, TrainingStatusResponse, TrainingResponse};
+use tokio;
 #[tokio::main]
 async fn main() {
     let api_key = "YOUR_API_KEY";
