@@ -11,7 +11,6 @@ pub use models::{
 use reqwest::Client;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use serde_json;
 pub struct OpenAI {
     api_key: String,
     client: Client,
@@ -21,7 +20,7 @@ pub struct OpenAI {
 impl OpenAI {
     pub fn new(api_key: String) -> OpenAI {
         OpenAI {
-            api_key: api_key,
+            api_key,
             client: Client::new(),
             base_url: "https://api.openai.com/v1/".to_owned(),
         }
@@ -178,7 +177,7 @@ impl OpenAI {
         training_id: &str,
     ) -> Result<String, String> {
         let endpoint = format!("engines/{}/training/{}/logs", model, training_id);
-        let url = self.build_url(&endpoint);
+        let url = self.build_url(endpoint.as_str());
 
         let response = self
             .client

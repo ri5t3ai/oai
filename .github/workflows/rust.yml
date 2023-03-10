@@ -4,7 +4,7 @@ name: Continuous integration
 
 jobs:
   check:
-    name: Checking
+    name: Check
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -12,15 +12,15 @@ jobs:
       run: cargo check --verbose
 
   build:
-    name: Building
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Run build
       run: cargo build --verbose
-      
+
   test:
-    name: Testing
+    name: Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
