@@ -4,61 +4,45 @@ name: Continuous integration
 
 jobs:
   check:
-    name: Check
+    name: Checking
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          command: check
+    - uses: actions/checkout@v3
+    - name: Run check
+      run: cargo check --verbose
 
+  build:
+    name: Building
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run build
+      run: cargo build --verbose
+      
   test:
-    name: Test Suite
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run tests
+      run: cargo test --verbose
+
+  fmt:
+    name: Rustfmt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        with:
-          profile: minimal
-          toolchain: stable
-          override: true
-      - uses: actions-rs/cargo@v1
-        with:
-          command: test
+      - name: Add rustfmt
+        run: rustup component add rustfmt
+      - name: Run rusfmt check
+        run: fmt --all -- --check
 
-  # fmt:
-  #   name: Rustfmt
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions-rs/toolchain@v1
-  #       with:
-  #         profile: minimal
-  #         toolchain: stable
-  #         override: true
-  #     - run: rustup component add rustfmt
-  #     - uses: actions-rs/cargo@v1
-  #       with:
-  #         command: fmt
-  #         args: --all -- --check
-
-  # clippy:
-  #   name: Clippy
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions-rs/toolchain@v1
-  #       with:
-  #         profile: minimal
-  #         toolchain: stable
-  #         override: true
-  #     - run: rustup component add clippy
-  #     - uses: actions-rs/cargo@v1
-  #       with:
-  #         command: clippy
-  #         args: -- -D warnings
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Add clippy
+        run: rustup component add rustfmt
+      - name: Run clippy Check
+        run: clippy -- -D warnings
