@@ -1,7 +1,6 @@
 [workspace]
 members = [
   "client",
-  "cli",
   "sandbox",
 ]
 default-members = ["sandbox"]
@@ -10,6 +9,13 @@ name = "oai"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "client"
+path = "client/src/lib.rs"
+
+[[bin]]
+name = "sandbox"
+path = "sandbox/src/main.rs"
 
 [dependencies]
 serde = "1.0.154"
