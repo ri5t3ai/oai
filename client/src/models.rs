@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize)]
 pub struct GenerateRequest<'a> {
@@ -10,8 +10,6 @@ pub struct GenerateRequest<'a> {
 pub struct GenerateResponse {
     pub choices: Vec<Choice>,
 }
-
-
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct CompletionResponse {

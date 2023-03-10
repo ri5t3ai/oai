@@ -1,5 +1,7 @@
-
-use client::{OpenAI, GenerateResponse, EmbeddingsResponse, ModelsResponse, TrainingStatusResponse, TrainingResponse};
+use client::{
+    EmbeddingsResponse, GenerateResponse, ModelsResponse, OpenAI, TrainingResponse,
+    TrainingStatusResponse,
+};
 use tokio;
 #[tokio::main]
 async fn main() {
@@ -10,10 +12,7 @@ async fn main() {
     let model = "davinci";
     let prompt = "Hello, world!";
     let max_tokens = 5;
-    let result: GenerateResponse = openai
-        .generate(model, prompt, max_tokens)
-        .await
-        .unwrap();
+    let result: GenerateResponse = openai.generate(model, prompt, max_tokens).await.unwrap();
     println!("Generate example result: {:?}", result);
 
     // List models example
@@ -35,7 +34,10 @@ async fn main() {
     // Check training status example
     let model = "davinci";
     let training_id = "YOUR_TRAINING_ID";
-    let result: TrainingStatusResponse = openai.check_training_status(model, training_id).await.unwrap();
+    let result: TrainingStatusResponse = openai
+        .check_training_status(model, training_id)
+        .await
+        .unwrap();
     println!("Check training status example result: {:?}", result);
 
     // Create training example
@@ -43,6 +45,9 @@ async fn main() {
     let training_data = &["Example training data"];
     let validation_data = &["Example validation data"];
     let name = "Example training";
-    let result: TrainingResponse = openai.create_training(model, training_data, validation_data, name, None, None).await.unwrap();
+    let result: TrainingResponse = openai
+        .create_training(model, training_data, validation_data, name, None, None)
+        .await
+        .unwrap();
     println!("Create training example result: {:?}", result);
 }
