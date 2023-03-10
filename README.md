@@ -4,19 +4,9 @@
 
 ![build main](https://github.com/ri5t3ai/oai/actions/workflows/rust.yml/badge.svg?branch=main) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" />         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
 
-The OpenAI Rust API client follows a trait-based approach to building a client, which provides several advantages. The client defines a `OpenAI` struct that contains a client field, which is a `reqwest::Client` instance for handling HTTP requests. Methods in the OpenAI struct are defined using traits, which allows the client to provide different implementations for different types of requests. For example, the `generate` method uses the `DeserializeOwned` trait to deserialize the response into the specified type. The use of traits provides a flexible and extensible design that makes it easy to add new functionality and integrate it with existing code. Additionally, this approach can make the code more modular and easier to maintain, as different components can be separated into their own traits and implemented independently. Overall, the trait-based approach used by the OpenAI Rust API client helps to provide a flexible and maintainable solution for interfacing with the OpenAI API.
+The OpenAI Rust API client follows a trait-based approach to building a client, which provides several advantages. The client defines a `OpenAI` struct that contains a client field, which is a `reqwest::Client` instance for handling HTTP requests. Methods in the OpenAI struct are defined using traits, which allows the client to provide different implementations for different types of requests. 
 
-## Approach
-
-While there are several alternative approaches to building an API client, the trait-based approach used by the OpenAI Rust API client has several benefits that make it a strong choice for many use cases.
-
-One key advantage of the trait-based approach is its flexibility and extensibility. By defining methods using traits, the client can provide a unified and consistent API for different types of requests, while also allowing for easy extension and modification of the underlying implementation. This can help to simplify the codebase and make it easier to reason about, as developers only need to learn a single set of methods that can be reused across different types of requests.
-
-Another benefit of the trait-based approach is its modularity and maintainability. By separating different components into their own traits and implementing them independently, the codebase can be broken down into smaller, more manageable pieces that can be tested and maintained separately. This can make it easier to add new functionality and fix bugs, while also reducing the risk of introducing regressions or breaking changes.
-
-Finally, the trait-based approach can help to make the code more reusable and interoperable. By defining methods using traits, the client can be easily integrated with other Rust libraries and frameworks, as well as with other programming languages that support trait-based interfaces. This can help to reduce development time and improve code quality, as developers can reuse existing code rather than reinventing the wheel.
-
-Overall, the trait-based approach used by the OpenAI Rust API client provides a flexible, modular, and maintainable solution for interfacing with the OpenAI API, making it a strong choice for many developers and use cases.
+For example, the `generate` method uses the `DeserializeOwned` trait to deserialize the response into the specified type. The use of traits provides a flexible and extensible design that makes it easy to add new functionality and integrate it with existing code. Additionally, this approach can make the code more modular and easier to maintain, as different components can be separated into their own traits and implemented independently. Overall, the trait-based approach used by the OpenAI Rust API client helps to provide a flexible and maintainable solution for interfacing with the OpenAI API.
 
 ##  Usage
 
