@@ -2,7 +2,7 @@ use client::{
     EmbeddingsResponse, GenerateResponse, ModelsResponse, OpenAI, TrainingResponse,
     TrainingStatusResponse,
 };
-use tokio;
+
 #[tokio::main]
 async fn main() {
     let api_key = "YOUR_API_KEY";
