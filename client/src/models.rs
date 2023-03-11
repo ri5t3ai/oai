@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use std::path::Display;
+
 #[derive(Serialize)]
 pub struct GenerateRequest<'a> {
     pub prompt: &'a str,
