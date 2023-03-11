@@ -12,3 +12,7 @@ serde_json = { version = "1.0.94", features = ["raw_value"] }
 reqwest = "0.11.14"
 tokio = { version = "1.26.0", features = ["full"] }
 client = { path = "../client" }
+dotenv = "0.15.0"
+log = "0.4.17"
+chrono = "0.4.23"
+fern = "0.6.1"
