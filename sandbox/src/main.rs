@@ -8,9 +8,12 @@ use dotenv::dotenv;
 use serde_json::Value;
 #[tokio::main]
 async fn main() {
- dotenv().ok();
+    dotenv().ok();
 
-    fern::Dispatch::new().chain(std::io::stdout()).apply().unwrap();
+    fern::Dispatch::new()
+        .chain(std::io::stdout())
+        .apply()
+        .unwrap();
 
     let api_key = std::env::var("OPENAI_API_KEY").expect("OPENAI_API_KEY must be set.");
     let openai = OpenAI::new(api_key.to_owned());
@@ -25,7 +28,6 @@ async fn main() {
     // println!("Generate example result: {:#?}", result);
 
     // List models example
-
 
     // // Get embeddings example
     // let model = "davinci";

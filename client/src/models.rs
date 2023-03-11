@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use std::{ path::Display};
+use std::path::Display;
 #[derive(Serialize)]
 pub struct GenerateRequest<'a> {
     pub prompt: &'a str,
@@ -53,7 +53,6 @@ pub struct EmbeddingsResponse {
     pub embeddings: Vec<Embedding>,
 }
 
-
 #[derive(Debug, Deserialize)]
 pub struct ModelPermission {
     pub id: String,
@@ -80,7 +79,6 @@ pub struct Model {
     pub root: String,
     pub parent: Option<String>,
 }
-
 
 #[derive(Debug, Deserialize)]
 pub struct ModelsResponse {

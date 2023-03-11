@@ -94,37 +94,37 @@ impl OpenAI {
         }
     }
 
-pub async fn list_models(&self) -> Result<serde_json::Value, String> {
-    let endpoint = "models";
-    let url = self.build_url(endpoint);
+    pub async fn list_models(&self) -> Result<serde_json::Value, String> {
+        let endpoint = "models";
+        let url = self.build_url(endpoint);
 
-    let response = self
-        .client
-        .get(&url)
-        .header("Authorization", format!("Bearer {}", self.api_key))
-        .send()
-        .await;
+        let response = self
+            .client
+            .get(&url)
+            .header("Authorization", format!("Bearer {}", self.api_key))
+            .send()
+            .await;
 
-    let response = match response {
-        Ok(res) => res,
-        Err(err) => return Err(err.to_string()),
-    };
+        let response = match response {
+            Ok(res) => res,
+            Err(err) => return Err(err.to_string()),
+        };
 
-    let status = response.status();
-    let body = response.text().await.map_err(|err| err.to_string())?;
+        let status = response.status();
+        let body = response.text().await.map_err(|err| err.to_string())?;
 
-    let response_body: serde_json::Value =
-        serde_json::from_str(&body).map_err(|err| err.to_string())?;
+        let response_body: serde_json::Value =
+            serde_json::from_str(&body).map_err(|err| err.to_string())?;
 
-    if status.is_success() {
-        Ok(response_body)
-    } else {
-        Err(format!(
-            "Request failed with status code: {}, response body: {:?}",
-            status, response_body
-        ))
+        if status.is_success() {
+            Ok(response_body)
+        } else {
+            Err(format!(
+                "Request failed with status code: {}, response body: {:?}",
+                status, response_body
+            ))
+        }
     }
-}
 
     pub async fn get_embeddings(
         &self,
