@@ -2,9 +2,9 @@
 
 # OpenAI Rust API
 
-![build main](https://github.com/ri5t3ai/oai/actions/workflows/rust.yml/badge.svg?branch=main) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" />         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
+![build main](https://github.com/ri5t3ai/oai/actions/workflows/ci.yml/badge.svg?branch=main) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" />         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
 
-The OpenAI Rust API client follows a trait-based approach to building a client, which provides several advantages. The client defines a `OpenAI` struct that contains a client field, which is a `reqwest::Client` instance for handling HTTP requests. Methods in the OpenAI struct are defined using traits, which allows the client to provide different implementations for different types of requests. 
+The OpenAI Rust API client follows a trait-based approach to building a client, which provides several advantages. The client defines a `OpenAI` struct that contains a client field, which is a `reqwest::Client` instance for handling HTTP requests. Methods in the OpenAI struct are defined using traits, which allows the client to provide different implementations for different types of requests.
 
 For example, the `generate` method uses the `DeserializeOwned` trait to deserialize the response into the specified type. The use of traits provides a flexible and extensible design that makes it easy to add new functionality and integrate it with existing code. Additionally, this approach can make the code more modular and easier to maintain, as different components can be separated into their own traits and implemented independently. Overall, the trait-based approach used by the OpenAI Rust API client helps to provide a flexible and maintainable solution for interfacing with the OpenAI API.
 
